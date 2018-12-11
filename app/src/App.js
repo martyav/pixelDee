@@ -4,7 +4,7 @@ import './App.css';
 
 class Square extends Component {
     render() {
-        return (<div className = 'Square red'></div>);
+        return (<div className = { 'Square ' + ( this.props.color ) }></div>);
     };
 }
 
@@ -13,10 +13,12 @@ class Square extends Component {
 class Grid extends Component {
     createSquares() {
         let squares = [];
+        let colors = ['red', 'black', 'white'];
 
         for (let i = 0; i < 8; i++) {
             for (let j = 0; j < 8; j++) {
-                squares.push(<Square />);
+                
+                squares.push(<Square color = { colors[j % 3] } />);
             }
         }
 
@@ -33,16 +35,16 @@ class Grid extends Component {
 }
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <Grid />
-        <Grid />
-        <Grid />
-        <Grid />
-      </div>
-    );
-  }
+    render() {
+        return (
+        <div className="App">
+            <Grid />
+            <Grid />
+            <Grid />
+            <Grid />
+        </div>
+        );
+    }
 }
 
 export default App;
