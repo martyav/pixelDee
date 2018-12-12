@@ -36,17 +36,70 @@
     width: 22px;
 }
 
-.blue {
-    background-color:  blue;
-}
-
 .black {
     background-color: black;
+}
+
+.gray {
+    background-color: #999999;
 }
 
 .white {
     background-color: white;
 }
+
+.red {
+    background-color: red;
+}
+
+.orange {
+    background-color: #dd8811;
+}
+
+.brown {
+    background-color: #885522;
+}
+
+.tan {
+    background-color: #cc9977;
+}
+
+.yellow {
+    background-color: #ffdd22;
+}
+
+.lime {
+    background-color: greenyellow;
+}
+
+.green {
+    background-color: #339955;
+}
+
+.cyan {
+    background-color: #33cccc;
+}
+
+.indigo {
+    background-color: #0077aa;
+}
+
+.blue {
+    background-color:  blue;
+}
+
+.purple {
+    background-color: #9944cc;
+}
+
+.magenta {
+    background-color: #cc00cc;
+}
+
+.pink {
+    background-color: #ee99aa;
+}
+
 
 .Grid {
     width: 176px;
