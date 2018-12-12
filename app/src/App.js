@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class Palette {
@@ -63,7 +62,7 @@ class Square extends Component {
         super(props);
 
         this.state = {
-            palette: Palette.mario()
+            palette: Palette.rgb()
         };
 
         this.cycleColors = this.cycleColors.bind(this);
@@ -112,13 +111,27 @@ class Grid extends Component {
 }
 
 class App extends Component {
+    constructor() {
+        super();
+
+        this.state = {
+            "frames": [<Grid />]
+        }
+
+        this.addGrid = this.addGrid.bind(this);
+    }
+
+    addGrid() {
+        this.setState(
+            {"frames": this.state.frames.concat(<Grid />)}
+        );
+    }
+
     render() {
         return (
         <div className="App">
-            <Grid />
-            <Grid />
-            <Grid />
-            <Grid />
+            <button onClick = {this.addGrid}>Add frame</button>
+            {this.state.frames}
         </div>
         );
     }
