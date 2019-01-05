@@ -1,61 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-
-class Palette {
-    static sonic() {
-        return {
-            'white': 'blue',
-            'blue': 'red',
-            'red': 'black',
-            'black': 'white',
-        }
-    }
-
-    static mario() {
-        return {
-            'white': 'tan',
-            'tan': 'brown',
-            'brown': 'red',
-            'red': 'white'
-        }
-    }
-
-    static grass() {
-        return {
-            'lime': 'green',
-            'green': 'yellow',
-            'yellow': 'tan',
-            'tan': 'lime'
-        }
-    }
-
-    static femme() {
-        return {
-            'pink': 'magenta',
-            'magenta': 'purple',
-            'purple': 'red',
-            'red': 'pink'
-        }
-    }
-
-    static printer() {
-        return {
-            'yellow': 'cyan',
-            'cyan': 'magenta',
-            'magenta': 'black',
-            'black': 'yellow'
-        }
-    }
-
-    static rgb() {
-        return {
-            'white': 'red',
-            'red': 'lime',
-            'lime': 'blue',
-            'blue': 'white'
-        }
-    }
-}
+import Palette from './Palette.js';
 
 class Square extends Component {
     constructor(props) {

@@ -76,11 +76,15 @@
     background-color: #339955;
 }
 
+.pine {
+    background-color: rgb(13, 73, 13)
+}
+
 .cyan {
     background-color: #33cccc;
 }
 
-.indigo {
+.azure {
     background-color: #0077aa;
 }
 
