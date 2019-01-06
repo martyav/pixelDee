@@ -60,7 +60,8 @@ class App extends Component {
         super();
 
         this.state = {
-            "frames": [<Grid />]
+            "frames": [<Grid />],
+            "current_frame": <Grid /> 
         }
 
         this.addFrame = this.addFrame.bind(this);
@@ -75,8 +76,16 @@ class App extends Component {
 
     deleteFrame() {
         this.setState(
-            {frames: this.state.frames.slice(0, this.state.frames.length - 1)}
+            {"frames": this.state.frames.slice(0, this.state.frames.length - 1)}
         );
+    }
+
+    animate() {
+        for (let i = 0; i < this.state.frames.length; i++) {
+            this.setState(
+                { "current_frame": this.state.frames[i] } 
+            );
+        };
     }
 
     render() {
@@ -91,11 +100,14 @@ class App extends Component {
             </header>
             <main>
                 <div className="frames">
-                    {this.state.frames}
+                    { this.state.frames }
                 </div>
             </main>
             <footer>
-                <button>Animate!</button>
+                <button onClick = {this.animate}>Animate!</button>
+                <div className="animation">
+                    { this.state.current_frame }
+                </div>
             </footer>
         </div>
         );
