@@ -47,8 +47,8 @@ export default class Palette {
     static rgb() {
         return {
             'white': 'red',
-            'red': 'lime',
-            'lime': 'blue',
+            'red': 'green',
+            'green': 'blue',
             'blue': 'white'
         }
     }

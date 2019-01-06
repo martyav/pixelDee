@@ -82,9 +82,21 @@ class App extends Component {
     render() {
         return (
         <div className="App">
-            <button class = 'add' onClick = {this.addFrame}>+</button>
-            <button class = 'remove' onClick = {this.deleteFrame}>-</button>
-            {this.state.frames}
+            <header>
+                <h1>PixelD</h1>
+                <div className="controls">
+                    <button className='add' onClick = {this.addFrame}>+</button>
+                    <button className='remove' onClick = {this.deleteFrame}>-</button>
+                </div>
+            </header>
+            <main>
+                <div className="frames">
+                    {this.state.frames}
+                </div>
+            </main>
+            <footer>
+                <button>Animate!</button>
+            </footer>
         </div>
         );
     }

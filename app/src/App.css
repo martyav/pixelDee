@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Baloo|VT323');
+
 .App {
-  text-align: center;
+  text-align: left;
 }
 
 .App-logo {
@@ -31,19 +33,42 @@
   }
 }
 
-button {
-    margin-top: 8px;
+header {
+    margin: 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+h1 {
+    color: blue;
+    font-family: "VT323";
+    font-size: 3em;
+    margin-right: 8px; 
+}
+
+.controls {
+    margin-left: 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start; 
+    align-items: center;
+}
+
+.controls button {
     width: 55px;
     height: 44px;
+    font-family: "Baloo";
     color: white;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
+    border-top: 3px solid black;
+    border-bottom: 3px solid black;
     font-weight: bold;
     font-size: 1.3em;
 }
 
 .add {
-    border-left: 1px solid black;
+    border-left: 3px solid black;
     border-right: none;
     border-top-left-radius: 50%;
     border-bottom-left-radius: 50%;
@@ -51,7 +76,7 @@ button {
 }
 
 .remove {
-    border-right: 1px solid black;
+    border-right: 3px solid black;
     border-left: none;
     border-top-right-radius: 50%;
     border-bottom-right-radius: 50%;
@@ -139,6 +164,9 @@ button {
     background-color: #ee99aa;
 }
 
+.frames {
+    display: flex;
+}
 
 .Grid {
     width: 176px;
@@ -149,4 +177,19 @@ button {
     grid-template-rows: repeat(8, 22px);
     margin: 16px;
     border: 3px solid black;
+    box-shadow: -8px 8px black;
+}
+
+footer {
+    margin: 16px;
+}
+
+footer button {
+    height: 44px;
+    border: 3px solid black;
+    color: white;
+    background-color: blue;
+    font-family: "VT323";
+    font-weight: bold;
+    font-size: 1.3em;
 }
