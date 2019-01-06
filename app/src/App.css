@@ -164,6 +164,10 @@ h1 {
     background-color: #ee99aa;
 }
 
+main {
+    margin: 8px;
+}
+
 .frames {
     display: flex;
 }
@@ -175,7 +179,7 @@ h1 {
     grid-auto-flow: column;
     grid-template-columns: repeat(8, 22px);
     grid-template-rows: repeat(8, 22px);
-    margin: 16px;
+    margin: 8px;
     border: 3px solid black;
 }
 
@@ -184,12 +188,14 @@ main .Grid {
 }
 
 footer {
-    margin: 16px;
+    margin-top: 16px;
+    margin-left: 8px;
 }
 
 footer button {
     height: 44px;
     border: 3px solid black;
+    margin: 8px;
     color: white;
     background-color: blue;
     font-family: "VT323";
@@ -197,7 +203,6 @@ footer button {
     font-size: 1.3em;
 }
 
-.animation {
-    transition: all;
-    transition-delay: 1000ms;
+footer .Grid {
+    border-color: blue;
 }

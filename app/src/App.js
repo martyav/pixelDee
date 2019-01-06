@@ -7,18 +7,21 @@ class Square extends Component {
         super(props);
 
         this.state = {
-            palette: Palette.rgb()
+            "palette": Palette.rgb(),
+            "color": "white"
         };
 
         this.cycleColors = this.cycleColors.bind(this);
     }
 
-    cycleColors(event) {
-        let element = event.target;
+    cycleColors() {
         let cycle = this.state.palette;
-    
-        let newName = 'Square '.concat(cycle[element.className.split(' ')[1]]);
-        element.className = newName;
+
+        this.setState(
+            { "color": cycle[this.state.color] }
+        )
+        
+        this.render();
     }
 
     paletteSwap(newPalette) {
@@ -28,28 +31,23 @@ class Square extends Component {
     }
 
     render() {
-        return (<div onClick = {this.cycleColors} className = { 'Square '.concat(( this.props.color )) }></div>);
+        return (<div onClick = { this.cycleColors } className = { 'Square '.concat(( this.state.color )) }></div>);
     };
 }
 
 class Grid extends Component {
-    createSquares() {
-        let squares = [];
+    constructor(props) {
+        super(props);
 
-        for (let i = 0; i < 8; i++) {
-            for (let j = 0; j < 8; j++) {
-                
-                squares.push(<Square color = 'white' />);
-            }
+        this.state = {
+            "squares": this.props.squares
         }
-
-        return squares;
     }
 
     render() {
         return (
             <div className = 'Grid'>
-                { this.createSquares() }
+                { this.state.squares }
             </div>
         );
     };
@@ -60,31 +58,43 @@ class App extends Component {
         super();
 
         this.state = {
-            "frames": [<Grid />],
-            "current_frame": <Grid /> 
+            "frames": [<Grid squares = { this.createSquares() } />],
         }
 
+        this.createSquares = this.createSquares.bind(this);
         this.addFrame = this.addFrame.bind(this);
         this.deleteFrame = this.deleteFrame.bind(this);
+        this.animate = this.animate.bind(this);
+    }
+
+    createSquares() {
+        let squares = [];
+
+        for (let i = 0; i < 8; i++) {
+            for (let j = 0; j < 8; j++) {
+                squares.push(<Square color = 'white' />);
+            }
+        }
+
+        return squares;
     }
 
     addFrame() {
         this.setState(
-            {"frames": this.state.frames.concat(<Grid />)}
+            { "frames": this.state.frames.concat(<Grid squares = { this.createSquares() }/>) }
         );
     }
 
     deleteFrame() {
         this.setState(
-            {"frames": this.state.frames.slice(0, this.state.frames.length - 1)}
+            { "frames": this.state.frames.slice(0, this.state.frames.length - 1) }
         );
     }
 
     animate() {
         for (let i = 0; i < this.state.frames.length; i++) {
-            this.setState(
-                { "current_frame": this.state.frames[i] } 
-            );
+            console.log(this.state.frames[i]);
+            
         };
     }
 
@@ -94,8 +104,8 @@ class App extends Component {
             <header>
                 <h1>PixelD</h1>
                 <div className="controls">
-                    <button className='add' onClick = {this.addFrame}>+</button>
-                    <button className='remove' onClick = {this.deleteFrame}>-</button>
+                    <button className='add' onClick = { this.addFrame }>+</button>
+                    <button className='remove' onClick = { this.deleteFrame }>-</button>
                 </div>
             </header>
             <main>
@@ -104,9 +114,9 @@ class App extends Component {
                 </div>
             </main>
             <footer>
-                <button onClick = {this.animate}>Animate!</button>
+                <button onClick = { this.animate }>Animate!</button>
                 <div className="animation">
-                    { this.state.current_frame }
+                    <Grid squares = { this.createSquares() }/>
                 </div>
             </footer>
         </div>
