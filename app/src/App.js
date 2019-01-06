@@ -63,19 +63,27 @@ class App extends Component {
             "frames": [<Grid />]
         }
 
-        this.addGrid = this.addGrid.bind(this);
+        this.addFrame = this.addFrame.bind(this);
+        this.deleteFrame = this.deleteFrame.bind(this);
     }
 
-    addGrid() {
+    addFrame() {
         this.setState(
             {"frames": this.state.frames.concat(<Grid />)}
+        );
+    }
+
+    deleteFrame() {
+        this.setState(
+            {frames: this.state.frames.slice(0, this.state.frames.length - 1)}
         );
     }
 
     render() {
         return (
         <div className="App">
-            <button onClick = {this.addGrid}>Add frame</button>
+            <button class = 'add' onClick = {this.addFrame}>+</button>
+            <button class = 'remove' onClick = {this.deleteFrame}>-</button>
             {this.state.frames}
         </div>
         );

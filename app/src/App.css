@@ -31,6 +31,41 @@
   }
 }
 
+button {
+    margin-top: 8px;
+    width: 55px;
+    height: 44px;
+    color: white;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    font-weight: bold;
+    font-size: 1.3em;
+}
+
+.add {
+    border-left: 1px solid black;
+    border-right: none;
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+    background-color: #339955;
+}
+
+.remove {
+    border-right: 1px solid black;
+    border-left: none;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    background-color: red;
+}
+
+.add:active {
+    background-color: darkgreen;
+}
+
+.remove:active {
+    background-color: maroon;
+}
+
 .Square {
     height: 22px;
     width: 22px;
